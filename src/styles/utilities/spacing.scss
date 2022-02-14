@@ -1,0 +1,63 @@
+$breakpoints: 'sm', 'md', 'lg';
+$spacing: 0, 5, 10, 15, 20;
+$unit: px;
+
+@mixin generate_spacing($prop, $short) {
+  @each $b in $breakpoints {
+    @if $b==sm {
+      @include sm {
+        @each $space in $spacing {
+          @each $key, $val in $directions {
+            .#{$short}#{$key}-#{$b}-#{$space} {
+              #{$prop}-#{$val}: $space + $unit !important;
+            }
+          }
+        }
+      }
+    }
+
+    @if $b==md {
+      @include md {
+        @each $space in $spacing {
+          @each $key, $val in $directions {
+            .#{$short}#{$key}-#{$b}-#{$space} {
+              #{$prop}-#{$val}: $space + $unit !important;
+            }
+          }
+        }
+      }
+    }
+
+    @if $b==lg {
+      @include lg {
+        @each $space in $spacing {
+          @each $key, $val in $directions {
+            .#{$short}#{$key}-#{$b}-#{$space} {
+              #{$prop}-#{$val}: $space + $unit !important;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @each $space in $spacing {
+    .#{$short}-#{$space} {
+      #{$prop}: $space + $unit !important;
+    }
+
+    @each $key, $val in $directions {
+      .#{$short}#{$key}-#{$space} {
+        #{$prop}-#{$val}: $space + $unit !important;
+
+        @if $key==v {
+          #{$prop}-bottom: $space + $unit !important;
+        }
+
+        @if $key==h {
+          #{$prop}-right: $space + $unit !important;
+        }
+      }
+    }
+  }
+}

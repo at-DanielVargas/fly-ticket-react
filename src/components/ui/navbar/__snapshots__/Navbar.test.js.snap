@@ -1,0 +1,72 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Navbar Component should be render Navbar component  1`] = `
+<div
+  className="navbar"
+>
+  <div
+    className="container d-flex"
+  >
+    <div
+      className="left"
+    >
+      <span
+        className="icon"
+      >
+        <Link
+          to="/"
+        >
+          <HiOutlineTicket />
+          <MdAirplaneTicket
+            className="text-primary"
+          />
+        </Link>
+      </span>
+      <Link
+        className="name"
+        to="/"
+      >
+        Fly
+        <span
+          className="txt-red"
+        >
+          Ticket
+        </span>
+      </Link>
+      <nav>
+        <Link
+          to="/"
+        >
+          Reservar
+        </Link>
+        <Link
+          to="/"
+        >
+          Información
+        </Link>
+        <Link
+          to="/"
+        >
+          Mi reserva
+        </Link>
+      </nav>
+    </div>
+    <div
+      className="right"
+    >
+      <nav>
+        <Link
+          to="/auth/login"
+        >
+          Iniciar sesión
+        </Link>
+        <Link
+          to="/"
+        >
+          Registro
+        </Link>
+      </nav>
+    </div>
+  </div>
+</div>
+`;

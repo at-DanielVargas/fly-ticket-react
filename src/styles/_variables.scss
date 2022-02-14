@@ -1,0 +1,306 @@
+$typography-font: 'Galano Grotesque Alt', sans-serif;
+$typography-code: 'Inconsolata', monospace;
+$typography-size: 1em;
+$typography-line-height: 1.5em;
+
+$grid-gutter-size: 1.25em;
+
+$grid-columns: 12;
+$screen-lg-min: 992px;
+$screen-md-min: 768px;
+$screen-sm-min: 576px;
+$screen-xs-max: 575px;
+
+$colors-dark-gray: #a8b2bd;
+$colors-light-gray: #e2e5e9;
+$colors-wash: #ecf0f1;
+$colors-black: #353535;
+$colors-red: #ff7772;
+$colors-green: #67ba72;
+$colors-yellow: #ffdd69;
+$colors-blue: #70bde6;
+$colors-magenta: #bf75ff;
+$colors-cyan: #92f9f6;
+$colors-white: #fff;
+
+$colors: (
+    dark-gray: $colors-dark-gray,
+    light-gray: $colors-light-gray,
+    wash: $colors-wash,
+    black: $colors-black,
+    red: $colors-red,
+    green: $colors-green,
+    yellow: $colors-yellow,
+    blue: $colors-blue,
+    magenta: $colors-magenta,
+    cyan: $colors-cyan,
+    white: $colors-white
+);
+
+$spacing-xs: 0.5em;
+$spacing-sm: 1em;
+$spacing-md: 2em;
+$spacing-lg: 3em;
+$spacing-xl: 4em;
+
+$breakpoints: 'xs', 'sm', 'md', 'lg';
+$directions: (
+    l: 'left',
+    r: 'right',
+    t: 'top',
+    b: 'bottom'
+);
+$spacing: 0, 5, 10, 15, 20;
+$unit: px;
+
+$border-radius: 8px;
+$box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+
+$dark-text-default: $colors-black !default;
+$light-text-default: $colors-wash !default;
+
+$spacer: 1em !default;
+$spacers: (
+    0: 0,
+    1: $spacer * 0.25,
+    2: $spacer * 0.5,
+    3: $spacer * 0.75,
+    4: $spacer * 1.25,
+    5: $spacer * 1.5,
+    6: $spacer * 1.75,
+    7: $spacer * 2.25,
+    8: $spacer * 2.5,
+    9: $spacer * 2.75,
+    10: $spacer * 3.25,
+    11: $spacer * 3.5,
+    12: $spacer * 3.75,
+    13: $spacer * 4.25,
+    14: $spacer * 4.5,
+    15: $spacer * 4.75,
+) !default;
+
+$extras: () !default;
+$extras: map-merge(
+    (
+        'flex': (
+            property: flex,
+            values: (
+                fill: 1 1 auto
+            )
+        ),
+        'flex-direction': (
+            property: flex-direction,
+            class: flex,
+            values: row column row-reverse column-reverse
+        ),
+        'width': (
+            property: width,
+            class: w,
+            values: (
+                25: 25%,
+                50: 50%,
+                75: 75%,
+                100: 100%,
+                auto: auto
+            )
+        ),
+        'position': (
+            property: position,
+            values: static relative absolute fixed sticky
+        ),
+        'justify-content': (
+            class: justify,
+            property: justify-content,
+            values: (
+                start: flex-start,
+                end: flex-end,
+                center: center,
+                between: space-between,
+                around: space-around,
+                evenly: space-evenly
+            )
+        ),
+        'align-items': (
+            class: a-items,
+            property: align-items,
+            values: (
+                start: flex-start,
+                end: flex-end,
+                center: center,
+                baseline: baseline,
+                stretch: stretch
+            )
+        ),
+        'align-content': (
+            class: a-content,
+            property: align-content,
+            values: (
+                start: flex-start,
+                end: flex-end,
+                center: center,
+                between: space-between,
+                around: space-around,
+                stretch: stretch
+            )
+        ),
+        'align-self': (
+            class: a-self,
+            property: align-self,
+            values: (
+                auto: auto,
+                start: flex-start,
+                end: flex-end,
+                center: center,
+                baseline: baseline,
+                stretch: stretch
+            )
+        ),
+        'display': (
+            property: display,
+            class: d,
+            values: inline inline-block block grid table table-row table-cell flex inline-flex none
+        ),
+        'padding': (
+            property: padding,
+            class: p,
+            values: $spacers
+        ),
+        'padding-horizontal': (
+            property: padding-right padding-left,
+            class: ph,
+            values: $spacers
+        ),
+        'padding-vertical': (
+            property: padding-top padding-bottom,
+            class: pv,
+            values: $spacers
+        ),
+        'padding-top': (
+            property: padding-top,
+            class: pt,
+            values: $spacers
+        ),
+        'padding-bottom': (
+            property: padding-bottom,
+            class: pb,
+            values: $spacers
+        ),
+        'padding-left': (
+            property: padding-left,
+            class: pl,
+            values: $spacers
+        ),
+        'padding-end': (
+            property: padding-right,
+            class: pr,
+            values: $spacers
+        ),
+        'margin': (
+            property: margin,
+            class: m,
+            values:
+                map-merge(
+                    $spacers,
+                    (
+                        auto: auto
+                    )
+                )
+        ),
+        'margin-horizontal': (
+            property: margin-right margin-left,
+            class: mh,
+            values:
+                map-merge(
+                    $spacers,
+                    (
+                        auto: auto
+                    )
+                )
+        ),
+        'margin-vertical': (
+            property: margin-top margin-bottom,
+            class: mv,
+            values:
+                map-merge(
+                    $spacers,
+                    (
+                        auto: auto
+                    )
+                )
+        ),
+        'margin-top': (
+            property: margin-top,
+            class: mt,
+            values:
+                map-merge(
+                    $spacers,
+                    (
+                        auto: auto
+                    )
+                )
+        ),
+        'margin-right': (
+            property: margin-right,
+            class: mr,
+            values:
+                map-merge(
+                    $spacers,
+                    (
+                        auto: auto
+                    )
+                )
+        ),
+        'margin-bottom': (
+            property: margin-bottom,
+            class: mb,
+            values:
+                map-merge(
+                    $spacers,
+                    (
+                        auto: auto
+                    )
+                )
+        ),
+        'margin-left': (
+            property: margin-left,
+            class: ml,
+            values:
+                map-merge(
+                    $spacers,
+                    (
+                        auto: auto
+                    )
+                )
+        )
+    ),
+    $extras
+);
+
+:root {
+    --typography-font: #{$typography-font};
+    --typography-code: #{$typography-code};
+    --typography-size: #{$typography-size};
+    --typography-line-height: #{$typography-line-height};
+
+    --grid-gutter-size: #{$grid-gutter-size};
+
+    --colors-dark-gray: #{$colors-dark-gray};
+    --colors-light-gray: #{$colors-light-gray};
+    --colors-wash: #{$colors-wash};
+    --colors-black: #{$colors-black};
+    --colors-red: #{$colors-red};
+    --colors-green: #{$colors-green};
+    --colors-yellow: #{$colors-yellow};
+    --colors-blue: #{$colors-blue};
+    --colors-magenta: #{$colors-magenta};
+    --colors-cyan: #{$colors-cyan};
+    --colors-white: #{$colors-white};
+
+    --spacing-xs: #{$spacing-xs};
+    --spacing-sm: #{$spacing-sm};
+    --spacing-md: #{$spacing-md};
+    --spacing-lg: #{$spacing-lg};
+    --spacing-xl: #{$spacing-xl};
+
+    --border-radius: #{$border-radius};
+}

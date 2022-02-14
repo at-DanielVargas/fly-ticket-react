@@ -1,0 +1,124 @@
+.modal_open {
+  overflow: hidden;
+}
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: auto;
+
+  &.opening {
+    animation: fadeIn 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+    .modal_content {
+      animation: scaleUp 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+    }
+  }
+  &.open {
+    transform: scale(1);
+  }
+  &.closing {
+    animation: fadeIn 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+    .modal_content {
+      animation: scaleDown 0.6s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+    }
+  }
+  &.closed {
+    transform: scale(0);
+  }
+
+  .modal_content {
+    background: #fff;
+    border-radius: 4px;
+    max-width: 50%;
+    box-shadow: 2px 6px 9px 0px rgba(0, 0, 0, 0.5);
+    min-width: 300px;
+
+    .modal_header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      padding: 10px;
+      margin-bottom: 10px;
+
+      h2 {
+        font-size: var(--global-font-size-h2);
+        font-weight: var(--global-font-weight-bold);
+        color: var(--text-color-inverse);
+      }
+      .close {
+        cursor: pointer;
+        font-size: var(--global-font-size-h2);
+        font-weight: var(--global-font-weight-bold);
+        color: var(--text-color-inverse);
+        &:hover {
+          color: var(--text-color);
+        }
+      }
+    }
+    .modal_body {
+      padding: 0 10px;
+      &.scrollable {
+        max-height: 300px;
+        overflow-y: auto;
+        overflow-x: hidden;
+      }
+    }
+    .modal_footer {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      margin-top: var(--global-margin);
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
+      padding: 10px;
+      margin-top: 10px;
+    }
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    background: rgba(0, 0, 0, 0);
+  }
+  100% {
+    background: rgba(0, 0, 0, 0.5);
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    background: rgba(0, 0, 0, 0.5);
+  }
+  100% {
+    background: rgba(0, 0, 0, 0);
+  }
+}
+
+@keyframes scaleUp {
+  0% {
+    transform: scale(0.8) translateY(1000px);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1) translateY(0px);
+    opacity: 1;
+  }
+}
+
+@keyframes scaleDown {
+  0% {
+    transform: scale(1) translateY(0px);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.8) translateY(1000px);
+    opacity: 0;
+  }
+}

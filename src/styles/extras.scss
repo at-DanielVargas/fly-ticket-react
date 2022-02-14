@@ -1,0 +1,65 @@
+.txt-upper {
+    text-transform: uppercase;
+}
+
+.txt-light {
+    font-weight: 300;
+}
+
+.txt-bold {
+    font-weight: 700;
+}
+
+.txt-lg {
+    font-size: 1.2em;
+}
+
+.fl-right {
+    float: right;
+}
+
+.fl-left {
+    float: left;
+}
+
+.clearfix:before {
+    content: ' ';
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.nowrap {
+    white-space: nowrap;
+}
+
+.round {
+    border-radius: $border-radius;
+}
+
+.hoverable:hover {
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    box-shadow: $box-shadow;
+}
+
+
+@include xs {
+    @include make-extras($extras, '-xs');    
+}
+
+@include sm {
+    @include make-extras($extras, '-sm');    
+}
+
+@include md {
+    @include make-extras($extras, '-md');    
+}
+
+@include lg {
+    @include make-extras($extras, '-lg');    
+}
+
+@include make-extras($extras);

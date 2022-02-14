@@ -1,0 +1,80 @@
+.container,
+.container-auto,
+.container-lg,
+.container-md,
+.container-sm,
+.container-xl {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@include xs {
+  .container,
+  .container-sm {
+    max-width: 540px;
+  }
+}
+@include sm {
+  .container,
+  .container-md,
+  .container-sm {
+    max-width: 720px;
+  }
+}
+@include md {
+  .container,
+  .container-lg,
+  .container-md,
+  .container-sm {
+    max-width: 960px;
+  }
+}
+@include lg {
+  .container,
+  .container-lg,
+  .container-md,
+  .container-sm {
+    max-width: 1140px;
+  }
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.row.no-gutter [class*='col'] {
+  padding: 0;
+}
+
+[class*='col'].no-gutter {
+  padding: 0;
+}
+
+[class*='col'] {
+  padding: ($grid-gutter-size / 2);
+  width: 100%;
+}
+
+.col {
+  flex-shrink: 1;
+  flex-basis: 0;
+  flex-grow: 1;
+}
+
+@include grid($breakpoint: 'xs', $offset: true, $ordering: true, $hidding: true);
+
+@include sm {
+    @include grid($breakpoint: 'sm', $offset: true, $ordering: true, $hidding: true);
+}
+
+@include md {
+    @include grid($breakpoint: 'md', $offset: true, $ordering: true, $hidding: true);
+}
+
+@include lg {
+    @include grid($breakpoint: 'lg', $offset: true, $ordering: true, $hidding: true);
+}

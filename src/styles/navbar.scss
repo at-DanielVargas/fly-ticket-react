@@ -1,0 +1,94 @@
+.navbar {
+    position: sticky;
+    top: 0;
+    background-color: $colors-white;
+    z-index: 1030;
+    .container {
+        display: flex;
+        padding: 25px 0;
+
+        .left,
+        .right {
+            align-items: center;
+        }
+
+        .left {
+            display: flex;
+            margin-right: auto;
+
+            .icon {
+                width: 30px;
+                height: 30px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: relative;
+                position: relative;
+                font-size: 30px;
+                transform: rotate(-38deg);
+                transition: all 400ms ease;
+                cursor: pointer;
+
+                svg {
+                    width: 100%;
+                    height: 100%;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    transition: all 400ms ease;
+                    &:nth-child(2) {
+                        opacity: 0;
+                    }
+                }
+                &:hover {
+                    transform: rotate(-397deg);
+                    svg:nth-child(2) {
+                        opacity: 1;
+                    }
+                    svg:nth-child(1) {
+                        opacity: 0;
+                    }
+                    svg:nth-child(2) {
+                        opacity: 1;
+                    }
+                }
+            }
+
+            .name {
+                color: $colors-black;
+                margin: 0;
+                font-size: 20px;
+                line-height: 24px;
+                font-weight: 700;
+                margin: 0 32px;
+                text-decoration: none;
+            }
+        }
+        .right {
+        }
+
+
+        nav {
+            a {
+                display: inline-block;
+                margin-left: auto;
+                margin-right: auto;
+                margin-top: auto;
+                margin-bottom: auto;
+                padding: 0;
+                list-style: none;
+                font-size: 0;
+                color: $colors-black;
+                text-decoration: none;
+                font-size: 1em;
+                line-height: 24px;
+                font-weight: 700;
+                margin: 0 .5em;
+                &:hover {
+                    color: $colors-dark-gray;
+                }
+            }
+        }
+    }
+}

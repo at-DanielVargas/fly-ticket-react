@@ -1,0 +1,72 @@
+label {
+    margin-bottom: 0.5em;
+}
+
+label,
+label textarea,
+label input,
+label select {
+    display: block;
+}
+
+textarea,
+input,
+select,
+.input {
+    border: 0.1em solid $colors-light-gray;
+    padding: 0.5em 1.5em;
+    border-radius: $border-radius;
+
+    &.input-sm {
+        padding: 0.25em 0.75em;
+    }
+
+    &.input-lg {
+        padding: 1em 3em;
+    }
+}
+
+textarea:focus,
+input:focus,
+select:focus {
+    border-color: var(--colors-blue);
+}
+
+textarea,
+input {
+    outline: 0;
+    width: 100%;
+}
+
+select {
+    height: 2.25em;
+    width: 100%;
+}
+
+input[type='checkbox'],
+input[type='radio'] {
+    display: inline-block;
+    width: auto;
+}
+
+input[disabled] {
+    color: $colors-light-gray;
+}
+
+.form-addon {
+    background-color: #fff;
+    border: 0.1em solid $colors-light-gray;
+    padding: 0.5em 1em;
+}
+
+fieldset {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+  
+    legend {
+      background: transparent;
+      color: #a8a8a8;
+      padding: 0 18px;
+      margin: 0 10px;
+    }
+  }

@@ -1,0 +1,31 @@
+@function str-replace($string, $search, $replace: '') {
+  $index: str-index($string, $search);
+
+  @if $index {
+    @return str-slice($string, 1, $index - 1) + $replace +
+      str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+  }
+
+  @return $string;
+}
+
+
+@function brightness($color) {
+  @return ((red($color) * 0.299) + (green($color) * 0.587) + (blue($color) * 0.114)) / 255 * 100%;
+}
+
+@function color-contrast($color, $dark: $dark-text-default, $light: $light-text-default) {
+  @if $color == null {
+      @return null;
+  } @else {
+      $color-brightness: brightness($color);
+      $light-text-brightness: brightness($light);
+      $dark-text-brightness: brightness($dark);
+
+      @return if(
+          abs($color-brightness - $light-text-brightness) > abs($color-brightness - $dark-text-brightness),
+          $light,
+          $dark
+      );
+  }
+}

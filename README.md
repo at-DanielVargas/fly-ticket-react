@@ -1,70 +1,113 @@
-# Getting Started with Create React App
+<div id="top"></div>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[![Contributors][contributors-shield]][contributors-url] [![Forks][forks-shield]][forks-url] [![Stargazers][stars-shield]][stars-url] [![Issues][issues-shield]][issues-url] [![MIT License][license-shield]][license-url] [![LinkedIn][linkedin-shield]][linkedin-url]
 
-## Available Scripts
+<br />
+<div align="center">
+  <a href="https://github.com/at-DanielVargas/fly-ticket-react">
+    <img src="src/assets/images/logo.png" alt="Logo" width="80" height="80">
+  </a>
 
-In the project directory, you can run:
+  <h3 align="center">FlyTicket</h3>
+  <p align="center">
+    <br />
+    <br />
+    <a href="{{repo_link}}">Demo</a>
+    ·
+    <a href="https://github.com/at-DanielVargas/fly-ticket-react/issues">Reportar un Bug</a>
+    ·
+    <a href="https://github.com/at-DanielVargas/fly-ticket-react/issues">Solicitar una mejora</a>
+  </p>
+</div>
 
-### `npm start`
+## Sobre el proyecto
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+[![Product Name Screen Shot][product-screenshot]](https://example.com)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Aplicación test para la reservacion de vuelos de una aerolinea.
 
-### `npm test`
+<p align="right">(<a href="#top">regresar arriba</a>)</p>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Creado con
 
-### `npm run build`
+A continuacion se muestra una lista de los frameworks y/o librerías que se utilizaron para el desarrollo del proyecto.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- [React.js](https://reactjs.org/)
+- [Express.js](https://expressjs.com/es/)
+- [PostgreSQL](https://www.postgresql.org/)
+- [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<p align="right">(<a href="#top">regresar arriba</a>)</p>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Comenzando
 
-### `npm run eject`
+Es necesario instalar los siguientes paquetes para que el proyecto funcione correctamente:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+<br />
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Pre requisitos
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+El proyecto se desarrollo en un entorno de Node.js y Npm con las siguentes versiones:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- Node.js: v14.15.5
+- Npm: v6.14.11
 
-## Learn More
+### Instalación
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+_Para la correcta instalacion y ejecucion de la aplicación es necesario ejecurar los comando mostrados a continuación_
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+1. Clonar el repositorio
+   ```sh
+   git clone https://github.com/at-DanielVargas/fly-ticket-react
+   ```
+2. Instalación de dependencias
+   ```sh
+   npm install
+   ```
+3. Editar variables de entorno en `.env`
+   ```sh
+   REACT_APP_API_URL=https://localhost:3001
+   REACT_APP_MODE=development
+   ```
+4. Iniciar el servidor de desarrollo
+   ```sh
+   npm run dev:server
+   ```
 
-### Code Splitting
+<p align="right">(<a href="#top">regresar arriba</a>)</p>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Contribuciones al proyecto
 
-### Analyzing the Bundle Size
+Para cualquier contribución por favor sigue las siguientes instrucciones:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Si tienes una sugerencia que mejoraría el proyecto, haz un fork del repositorio implementa la mejora y crea un Pull Request. También puedes abrir un issue con la etiqueta "enhancement". ¡No olvides darle una estrella al proyecto! ¡Gracias de nuevo!
 
-### Making a Progressive Web App
+1. Crea un Fork de proyecto
+2. Crea un branch (`git checkout -b feature/AmazingFeature`)
+3. Haz commit de tus cambios, **Nota: recuerda seguir el estandar de [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/)** (`git commit -m 'feat: add some amazing feature'`)
+4. Haz un push de tus cambios (`git push origin feature/AmazingFeature`)
+5. Crea un Pull Request de tu implementación
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+<p align="right">(<a href="#top">regresar arriba</a>)</p>
 
-### Advanced Configuration
+## Contacto
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Daniel Vargas - [@your_twitter](https://twitter.com/your_username) - daniel.vargastr@gmail.com
 
-### Deployment
+Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+<p align="right">(<a href="#top">regresar arriba</a>)</p>
 
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+[contributors-shield]: https://img.shields.io/github/contributors/at-DanielVargas/fly-ticket-react.svg?style=flat
+[contributors-url]: https://github.com/at-DanielVargas/fly-ticket-react/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/at-DanielVargas/fly-ticket-react.svg?style=flat
+[forks-url]: https://github.com/at-DanielVargas/fly-ticket-react/network/members
+[stars-shield]: https://img.shields.io/github/stars/at-DanielVargas/fly-ticket-react.svg?style=flat
+[stars-url]: https://github.com/at-DanielVargas/fly-ticket-react/stargazers
+[issues-shield]: https://img.shields.io/github/issues/at-DanielVargas/fly-ticket-react.svg?style=flat
+[issues-url]: https://github.com/at-DanielVargas/fly-ticket-react/issues
+[license-shield]: https://img.shields.io/github/license/at-DanielVargas/fly-ticket-react.svg?style=flat
+[license-url]: https://github.com/at-DanielVargas/fly-ticket-react/blob/master/LICENSE.txt
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat&logo=linkedin&colorB=555
+[linkedin-url]: https://linkedin.com/in/at-DanielVargas
+[product-screenshot]: images/screenshot.png

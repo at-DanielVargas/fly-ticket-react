@@ -1,0 +1,229 @@
+@mixin generate_spacing($prop, $short) {
+    @each $b in $breakpoints {
+        @if $b==xs {
+            @include xs {
+                @each $space in $spacing {
+                    @each $key, $val in $directions {
+                        .#{$short}#{$key}-#{$b}-#{$space} {
+                            #{$prop}-#{$val}: $space + $unit !important;
+                        }
+                    }
+                }
+            }
+        }
+
+        @if $b==sm {
+            @include sm {
+                @each $space in $spacing {
+                    @each $key, $val in $directions {
+                        .#{$short}#{$key}-#{$b}-#{$space} {
+                            #{$prop}-#{$val}: $space + $unit !important;
+                        }
+                    }
+                }
+            }
+        }
+
+        @if $b==md {
+            @include md {
+                @each $space in $spacing {
+                    @each $key, $val in $directions {
+                        .#{$short}#{$key}-#{$b}-#{$space} {
+                            #{$prop}-#{$val}: $space + $unit !important;
+                        }
+                    }
+                }
+            }
+        }
+
+        @if $b==lg {
+            @include lg {
+                @each $space in $spacing {
+                    @each $key, $val in $directions {
+                        .#{$short}#{$key}-#{$b}-#{$space} {
+                            #{$prop}-#{$val}: $space + $unit !important;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @each $space in $spacing {
+        .#{$short}-#{$space} {
+            #{$prop}: $space + $unit !important;
+        }
+
+        @each $key, $val in $directions {
+            .#{$short}#{$key}-#{$space} {
+                #{$prop}-#{$val}: $space + $unit !important;
+
+                @if $key==v {
+                    #{$prop}-bottom: $space + $unit !important;
+                }
+
+                @if $key==h {
+                    #{$prop}-right: $space + $unit !important;
+                }
+            }
+        }
+    }
+}
+
+@mixin generate_responsive($class, $prop, $value) {
+    @each $b in $breakpoints {
+        @if $b==xs {
+            @include xs {
+                .#{str-replace($class, '-#', '-#{$b}')} {
+                    #{$prop}: #{$value} !important;
+                }
+            }
+        }
+
+        @if $b==sm {
+            @include sm {
+                .#{str-replace($class, '-#', '-#{$b}')} {
+                    #{$prop}: #{$value} !important;
+                }
+            }
+        }
+
+        @if $b==md {
+            @include md {
+                .#{str-replace($class, '-#', '-#{$b}')} {
+                    #{$prop}: #{$value} !important;
+                }
+            }
+        }
+
+        @if $b==lg {
+            @include lg {
+                .#{str-replace($class, '-#', '-#{$b}')} {
+                    #{$prop}: #{$value} !important;
+                }
+            }
+        }
+    }
+
+    .#{str-replace($class, '-#', '')} {
+        #{$prop}: #{$value} !important;
+    }
+}
+
+@mixin xs {
+    @media (max-width: #{$screen-xs-max}) {
+        @content;
+    }
+}
+
+@mixin sm {
+    @media (min-width: #{$screen-sm-min}) {
+        @content;
+    }
+}
+
+@mixin md {
+    @media (min-width: #{$screen-md-min}) {
+        @content;
+    }
+}
+
+@mixin lg {
+    @media (min-width: #{$screen-lg-min}) {
+        @content;
+    }
+}
+
+@mixin class-from-map($classname, $values, $prop) {
+    @each $keyprop, $valueprop in $values {
+        .#{str-replace($classname, '-#', '-#{$keyprop}')} {
+            #{$prop}: #{$valueprop} !important;
+        }
+    }
+}
+
+@mixin color-variant($colors: $colors-list, $class, $props) {
+    @each $key, $color in $colors {
+        .#{str-replace($class, '-#', '-#{$key}')} {
+            #{$props}: $color !important;
+        }
+    }
+}
+
+@mixin grid($breakpoint, $offset: false, $ordering: false, $hidding: false) {
+    // columns
+    @for $column from 1 to $grid-columns + 1 {
+        .col-#{$breakpoint}-#{$column} {
+            width: (100% * $column) / $grid-columns;
+        }
+    }
+
+    // offsets
+    @if $offset {
+        @for $column from 1 to $grid-columns + 1 {
+            .col-#{$breakpoint}-offset-#{$column} {
+                margin-left: (100% * $column) / $grid-columns;
+            }
+        }
+    }
+
+    // order
+    @if $ordering {
+        .col-#{$breakpoint}-first {
+            order: -1;
+        }
+
+        .col-#{$breakpoint}-last {
+            order: 1;
+        }
+    }
+
+    // breakpoints hide
+    @if $hidding {
+        .#{$breakpoint}-hide {
+            display: none;
+        }
+    }
+}
+
+
+
+
+@mixin make-extras($extras, $responsive_infix: "") {
+    @each $k, $p in $extras {
+        $values: map-get($p, values);
+        $cls: map-get($p, class);
+        $properties: map-get($p, property);
+
+        @if type-of($values) == 'string' or type-of(nth($values, 1)) != 'list' {
+            $values: zip($values, $values);
+        }
+
+        @if type-of($properties) == 'string' {
+            $properties: append((), $properties);
+        }
+
+        $cls: if(map-has-key($p, class), map-get($p, class), nth($properties, 1));
+        $cls: if($cls == null, '', $cls);
+
+        @each $key, $value in $values {
+            $responsive_infix: if($cls == '' and str-slice($responsive_infix, 1, 1) == '-', str-slice($responsive_infix, 2), $responsive_infix);
+
+            $property-class-modifier: if($key, if($cls == '' and $responsive_infix == '', '', '-') + $key, '');
+
+            @if $key {
+                .#{$cls + $responsive_infix + $property-class-modifier} {
+                    @each $property in $properties {
+                        #{$property}: $value;
+                    }
+                }
+            } @else {
+                .#{$cls + $responsive_infix + $property-class-modifier} {
+                    @each $property in $properties {
+                        #{$property}: $value;
+                    }
+                }
+            }
+        }
+    }
+}

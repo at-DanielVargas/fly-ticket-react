@@ -1,0 +1,18 @@
+{
+    "compilerOptions": {
+        "baseUrl": "./",
+        "jsx": "react",
+        "paths": {
+            "@core": ["src/core/index"],
+            "@services": ["src/services/index"],
+            "@store": ["src/store/index"],
+            "@components": ["src/components/index"],
+            "@ui": ["src/components/ui/index"],
+            "@screens": ["src/screens/index"],
+            "@hooks": ["src/hooks/index"],
+            "@env": ["src/config/environment"],
+            "@assets/*": ["src/asset/*"],
+            "@utils": ["src/core/utils/index"]
+        }
+    }
+}

@@ -1,0 +1,8 @@
+@include color-variant($colors, 'bg-#', 'background-color');
+@include color-variant($colors, 'txt-#', 'color');
+
+@include color-variant($colors, 'border-#', 'border-color');
+@include color-variant($colors, 'border-top-#', 'border-top-color');
+@include color-variant($colors, 'border-left-#', 'border-left-color');
+@include color-variant($colors, 'border-right-#', 'border-right-color');
+@include color-variant($colors, 'border-bottom-#', 'border-bottom-color');
