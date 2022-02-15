@@ -1,4 +1,8 @@
-import React from 'react';
+import React from 'react'
+import { Outlet } from 'react-router-dom'
+
 export const Reservations = () => {
-  return <h1>Reservaciones</h1>;
-};
+  return (
+    <Outlet />
+  )
+}

@@ -12,7 +12,8 @@
             "@hooks": ["src/hooks/index"],
             "@env": ["src/config/environment"],
             "@assets/*": ["src/asset/*"],
-            "@utils": ["src/core/utils/index"]
+            "@utils": ["src/core/utils/index"],
+            "@constants": ["src/config/constants"]
         }
     }
 }

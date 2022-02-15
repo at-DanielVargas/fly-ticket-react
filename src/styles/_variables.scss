@@ -14,14 +14,15 @@ $screen-xs-max: 575px;
 $colors-dark-gray: #a8b2bd;
 $colors-light-gray: #e2e5e9;
 $colors-wash: #ecf0f1;
-$colors-black: #353535;
-$colors-red: #ff7772;
+$colors-black: #12182b;
+$colors-red: #f54952;
 $colors-green: #67ba72;
 $colors-yellow: #ffdd69;
 $colors-blue: #70bde6;
-$colors-magenta: #bf75ff;
-$colors-cyan: #92f9f6;
+$colors-magenta: #b83253;
+$colors-cyan: #6dffe7;
 $colors-white: #fff;
+$colors-purple: #543884;
 
 $colors: (
     dark-gray: $colors-dark-gray,
@@ -34,8 +35,11 @@ $colors: (
     blue: $colors-blue,
     magenta: $colors-magenta,
     cyan: $colors-cyan,
-    white: $colors-white
+    white: $colors-white,
+    purple: $colors-purple
 );
+
+$controls-active-color: $colors-purple;
 
 $spacing-xs: 0.5em;
 $spacing-sm: 1em;
@@ -54,7 +58,7 @@ $spacing: 0, 5, 10, 15, 20;
 $unit: px;
 
 $border-radius: 8px;
-$box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+$box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15), 0 4px 4px rgba(0, 0, 0, 0.12);
 
 $dark-text-default: $colors-black !default;
 $light-text-default: $colors-wash !default;
@@ -76,7 +80,7 @@ $spacers: (
     12: $spacer * 3.75,
     13: $spacer * 4.25,
     14: $spacer * 4.5,
-    15: $spacer * 4.75,
+    15: $spacer * 4.75
 ) !default;
 
 $extras: () !default;

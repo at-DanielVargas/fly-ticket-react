@@ -1,23 +1,23 @@
-const selectSearchFlightsResults = state => state.flights.list;
+const selectSearchFlightsResults = state => state.flights.list
 
-const selectSearchLoadingState = state => state.flights.loading;
+const selectSearchLoadingState = state => state.flights.loading
 
-const selectSearchLoadingErrors = state => state.flights.error;
+const selectSearchLoadingErrors = state => state.flights.error
 
-const selectLastSearch = state => state.flights.query;
+const selectLastSearch = state => state.flights.query
 
-const selectDepartureFlight = state => state.flights.departure;
+const selectDepartureFlight = state => state.flights.departure
 
-const selectReturnFlight = state => state.flights.return;
+const selectReturnFlight = state => state.flights.return
 
-const selectPassengers = state => state.flights.query.passengers;
+const selectPassengers = state => state?.flights?.query?.passengers
 
 export const FlightsSelectors = {
-    selectSearchFlightsResults,
-    selectSearchLoadingState,
-    selectSearchLoadingErrors,
-    selectLastSearch,
-    selectDepartureFlight,
-    selectReturnFlight,
-    selectPassengers
-};
+  selectSearchFlightsResults,
+  selectSearchLoadingState,
+  selectSearchLoadingErrors,
+  selectLastSearch,
+  selectDepartureFlight,
+  selectReturnFlight,
+  selectPassengers
+}

@@ -1,2 +1,2 @@
-export * from './display.util';
-export * from './validator.util';
+export * from './display.util'
+export * from './validator.util'

@@ -1,9 +1,21 @@
-import React from 'react';
+import React from 'react'
+import { PropTypes } from 'prop-types'
 
-export const DropdownItem = ({ children, onClick, isDivider }) => {
-    return (
-        <div className={`dropdown-item ${isDivider && 'dropdown-ivider'}`} onClick={onClick}>
-            {children}
-        </div>
-    );
-};
+const DropdownItem = ( { children, onClick, isDivider } ) => {
+  return (
+    <div className={`dropdown-item ${isDivider && 'dropdown-ivider'}`} onClick={onClick}>
+      {children}
+    </div>
+  )
+}
+
+
+DropdownItem.propTypes = {
+  children: PropTypes.node,
+  onClick: PropTypes.func,
+  isDivider: PropTypes.bool
+}
+
+
+
+export  { DropdownItem }

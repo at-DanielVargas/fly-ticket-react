@@ -1,52 +1,117 @@
-import React, { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { Navigate, useNavigate } from 'react-router-dom';
-import { ReservationsSelectors, ReservationActions } from '@store';
-import { Plane } from '@components';
-export const Seats = () => {
-    const navigate = useNavigate();
-    const dispatch = useDispatch();
-    const reservation = useSelector(ReservationsSelectors.currentReservation);
-    const passengers = useSelector(ReservationsSelectors.selectPassengers);
-    const [seatsState, setSeatsState] = useState({
-        seats: reservation?.flight?.seats.flat().filter(seat => seat.available) || []
-    });
+import React, { useState } from 'react'
+import { useSelector } from 'react-redux'
+import { ReservationsSelectors } from '@store'
+import { Plane } from '@components'
+import { DEPARTURE_KEY, RETURN_KEY, SEARCH_TYPES } from '@constants'
+import { DisplayUtil } from '@utils'
+// eslint-disable-next-line no-unused-vars
+import { Formik, Field, ErrorMessage } from 'formik'
+// eslint-disable-next-line no-unused-vars
+import { object, string } from 'yup'
 
-    const handleSeatSelect = seat => {
-        console.log(seat);
-    };
+const Seats = () => {
+  const departureSeats = useSelector( ReservationsSelectors.selectDeparturePasengersSeats )
+  const returnSeats = useSelector( ReservationsSelectors.selectReturnPassengersSeats )
+  const departureFlightSeats = useSelector( ReservationsSelectors.selectDepartureFlightSeatsRows )
+  const returnFlightSeats = useSelector( ReservationsSelectors.selectReturnFlightSeatsRows )
+  const passengers = useSelector( ReservationsSelectors.selectPassengers )
+  const mode = useSelector( ReservationsSelectors.selectFlightMode )
 
-    if (!reservation) {
-        return <Navigate to='/' />;
+  const [flightType, setFlightType] = useState( DEPARTURE_KEY )
+
+  const handleFlightTypeChange = type => {
+    setFlightType( type )
+  }
+
+  const getPassengerSeatForFlight = passenger => {
+    const seat = passenger.seats.find( seat => seat.type === flightType )
+    if ( seat ) {
+      return seat.row + seat.seat
     }
+  }
 
-    return (
-        <div className='container-lg'>
-            <div className='row'>
-                <div className='col-12'>
-                    <h1>Selección de asiento </h1>
+  const getFlightRowsForMode = () => {
+    return flightType === DEPARTURE_KEY ? departureFlightSeats : returnFlightSeats
+  }
+
+  const getPassengerSelectedSeatsForMode = () => {
+    return flightType === DEPARTURE_KEY ? departureSeats : returnSeats
+  }
+
+  const handleSeatSelect = seat => {
+    console.log( seat )
+  }
+
+  const initialValues = {
+    passengers: [...passengers]
+  }
+
+  const validationSchema = object().shape( {} )
+
+  return (
+    <div className='container-lg'>
+      <Formik initialValues={initialValues} validationSchema={validationSchema}>
+        <div className='row'>
+          <div className='col-12'>
+            <h1>Selección de asiento </h1>
+
+            {mode === SEARCH_TYPES.ROUNDTRIP && (
+              <div className='button-group'>
+                <button
+                  className='button button-sm'
+                  onClick={() => handleFlightTypeChange( DEPARTURE_KEY )}
+                >
+                                    Vuelo de ida
+                </button>
+                <button className='button button-sm' onClick={() => handleFlightTypeChange( RETURN_KEY )}>
+                                    Vuelo de regreso
+                </button>
+              </div>
+            )}
+          </div>
+          <div className='col-12'>
+            <fieldset className='p-4'>
+              <legend>Asientos</legend>
+              <div className='d-xs-block d-md-flex'>
+                <div className='w-100 mr-4'>
+                  <p>Pasajeros</p>
+                  <div className='list-group list-group-checkable'>
+                    {passengers.map( ( passenger, i ) => (
+                      <label className='list-group-item py-3' htmlFor={`passenger-${i}`} key={i}>
+                        <input
+                          className='list-group-item-check'
+                          type='radio'
+                          name='passenger'
+                          id={`passenger-${i}`}
+                        />
+                        <small>
+                                                    Pasajero {i + 1} {DisplayUtil.pasengerLabel( passenger )}
+                        </small>
+                        <p>
+                          {passenger.name} {passenger.lastname}
+                        </p>
+                        <small>
+                                                    Asiento asignado <b>{getPassengerSeatForFlight( passenger )}</b>
+                        </small>
+                      </label>
+                    ) )}
+                  </div>
                 </div>
-                <div className='col-12'>
-                    <fieldset>
-                        <legend>Asientos</legend>
-                        <div className='row'>
-                            <div className='col-md-8'>
-                                <p>Usuarios</p>
-                                <ul>
-                                    {passengers.map((passenger, index) => (
-                                        <li key={index}>
-                                            {passenger.name} {passenger.lastname}
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
-                            <div className='col-md-4'>
-                                <Plane seatsRows={reservation?.flight?.seats} onSeatSelect={handleSeatSelect} />
-                            </div>
-                        </div>
-                    </fieldset>
+                <div>
+                  <Plane
+                    name='seat'
+                    seatsRows={getFlightRowsForMode()}
+                    selectedSeat={getPassengerSelectedSeatsForMode()}
+                    onSeatSelect={handleSeatSelect}
+                  />
                 </div>
-            </div>
+              </div>
+            </fieldset>
+          </div>
         </div>
-    );
-};
+      </Formik>
+    </div>
+  )
+}
+
+export { Seats }

@@ -1,24 +1,25 @@
-import React, { useEffect, useState } from 'react';
-import { useBodyClass } from '@hooks';
+import React, { useEffect, useState } from 'react'
+import { PropTypes } from 'prop-types'
+import { useBodyClass } from '@hooks'
 
-export const Modal = ({ children, onClose, show, title, scollable = false }) => {
-  useBodyClass(`${show ? 'modal_open' : null}`);
-  const [state, setState] = useState('closed'); // closed, opening, open, closing
-  useEffect(() => {
-    if (show) {
-      setState('opening');
-      setTimeout(() => {
-        setState('open');
-      }, 400);
+const Modal = ( { children, onClose, show, title, scollable = false } ) => {
+  useBodyClass( `${show ? 'modal_open' : null}` )
+  const [state, setState] = useState( 'closed' ) // closed, opening, open, closing
+  useEffect( () => {
+    if ( show ) {
+      setState( 'opening' )
+      setTimeout( () => {
+        setState( 'open' )
+      }, 400 )
     } else {
-      setState('closing');
-      setTimeout(() => {
-        setState('closed');
-      }, 400);
+      setState( 'closing' )
+      setTimeout( () => {
+        setState( 'closed' )
+      }, 400 )
     }
-  }, [show]);
+  }, [show] )
 
-  if (!children || show === false) return null;
+  if ( !children || show === false ) return null
   return (
     <div className={`modal ${state}`}>
       <div className='modal_content'>
@@ -36,5 +37,16 @@ export const Modal = ({ children, onClose, show, title, scollable = false }) => 
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
+
+
+Modal.propTypes = {
+  children: PropTypes.node,
+  onClose: PropTypes.func,
+  show: PropTypes.bool,
+  title: PropTypes.string,
+  scollable: PropTypes.bool
+}
+
+export { Modal }

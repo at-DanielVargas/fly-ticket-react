@@ -1,16 +1,16 @@
-import React from 'react';
-import '@testing-library/jest-dom';
-import { shallow } from 'enzyme';
-import { Navbar } from './Navbar';
+import React from 'react'
+import '@testing-library/jest-dom'
+import { shallow } from 'enzyme'
+import { Navbar } from './Navbar'
 
-describe('Navbar Component', () => {
-    let wrapper;
+describe( 'Navbar Component', () => {
+  let wrapper
 
-    beforeEach(() => {
-        wrapper = shallow(<Navbar />);
-    });
+  beforeEach( () => {
+    wrapper = shallow( <Navbar /> )
+  } )
 
-    test('should be render Navbar component ', () => {
-        expect(wrapper).toMatchSnapshot();
-    });
-});
+  test( 'should be render Navbar component ', () => {
+    expect( wrapper ).toMatchSnapshot()
+  } )
+} )

@@ -1,4 +1,4 @@
-import { AuthService } from '@services';
+import { AuthService } from '@services'
 
 export const AuthActionTypes = {
   LOGIN_REQUEST: '@auth/LOGIN_REQUEST',
@@ -8,47 +8,47 @@ export const AuthActionTypes = {
   REGISTER_REQUEST: '@auth/REGISTER_REQUEST',
   REGISTER_SUCCESS: '@auth/REGISTER_SUCCESS',
   REGISTER_FAILURE: '@auth/REGISTER_FAILURE'
-};
+}
 
-const login = ({ email, password }) => {
+const login = ( { email, password } ) => {
   return async dispatch => {
-    dispatch({ type: AuthActionTypes.LOGIN_REQUEST });
-    AuthService.login({ email, password })
-      .then(response => {
-        dispatch({
+    dispatch( { type: AuthActionTypes.LOGIN_REQUEST } )
+    AuthService.login( { email, password } )
+      .then( response => {
+        dispatch( {
           type: AuthActionTypes.LOGIN_SUCCESS,
           payload: response.data
-        });
-      })
-      .catch(error => {
-        dispatch({
+        } )
+      } )
+      .catch( error => {
+        dispatch( {
           type: AuthActionTypes.LOGIN_FAILURE,
-          payload: error
-        });
-      });
-  };
-};
+          payload: error.response.data
+        } )
+      } )
+  }
+}
 
-const register = ({ user }) => {
+const register = ( { user } ) => {
   return async dispatch => {
-    dispatch({ type: AuthActionTypes.REGISTER_REQUEST });
-    AuthService.register({ user })
-      .then(response => {
-        dispatch({
+    dispatch( { type: AuthActionTypes.REGISTER_REQUEST } )
+    AuthService.register( { user } )
+      .then( response => {
+        dispatch( {
           type: AuthActionTypes.REGISTER_SUCCESS,
           payload: response.data
-        });
-      })
-      .catch(error => {
-        dispatch({
+        } )
+      } )
+      .catch( error => {
+        dispatch( {
           type: AuthActionTypes.REGISTER_FAILURE,
           payload: error
-        });
-      });
-  };
-};
+        } )
+      } )
+  }
+}
 
 export const AuthActions = {
   login,
   register
-};
+}

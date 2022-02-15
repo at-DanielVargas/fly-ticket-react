@@ -12490,6 +12490,13 @@
       "firstname": "Daniel",
       "lastname": "Vargas",
       "id": 1
+    },
+    {
+      "email": "daniel.vargastr@gmail.com",
+      "password": "$2a$10$Uy1ZHBfvCbtzuGlvNN1WMOyDKFjununtDNJogHNsOAUHSGhdCkTl6",
+      "name": "Daniel",
+      "lastname": "Vargas",
+      "id": 2
     }
   ],
   "reservations": []

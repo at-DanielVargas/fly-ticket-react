@@ -45,21 +45,38 @@
     box-shadow: $box-shadow;
 }
 
+.list-group {
+    display: flex;
+    flex-direction: column;
+    padding-left: 0;
+    margin-bottom: 0;
+    border-radius: $border-radius;
+
+    .list-group-item {
+        position: relative;
+        display: block;
+        padding: 0.5rem 1rem;
+        color: #212529;
+        text-decoration: none;
+        background-color: #fff;
+        border: 1px solid $colors-black;
+    }
+}
 
 @include xs {
-    @include make-extras($extras, '-xs');    
+    @include make-extras($extras, '-xs');
 }
 
 @include sm {
-    @include make-extras($extras, '-sm');    
+    @include make-extras($extras, '-sm');
 }
 
 @include md {
-    @include make-extras($extras, '-md');    
+    @include make-extras($extras, '-md');
 }
 
 @include lg {
-    @include make-extras($extras, '-lg');    
+    @include make-extras($extras, '-lg');
 }
 
 @include make-extras($extras);

@@ -16,6 +16,7 @@ select,
     border: 0.1em solid $colors-light-gray;
     padding: 0.5em 1.5em;
     border-radius: $border-radius;
+    transition: border-color 400ms ease;
 
     &.input-sm {
         padding: 0.25em 0.75em;
@@ -28,8 +29,11 @@ select,
 
 textarea:focus,
 input:focus,
-select:focus {
-    border-color: var(--colors-blue);
+select:focus,
+textarea:hover,
+input:hover,
+select:hover {
+    border-color: $controls-active-color;
 }
 
 textarea,
@@ -62,11 +66,11 @@ input[disabled] {
 fieldset {
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 5px;
-  
+
     legend {
-      background: transparent;
-      color: #a8a8a8;
-      padding: 0 18px;
-      margin: 0 10px;
+        background: transparent;
+        color: #a8a8a8;
+        padding: 0 18px;
+        margin: 0 10px;
     }
-  }
+}

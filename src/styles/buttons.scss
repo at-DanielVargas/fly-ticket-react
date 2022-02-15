@@ -1,7 +1,8 @@
 button,
 .button {
-    background-color: $colors-dark-gray;
-    border: 0;
+    background-color: $colors-white;
+    color: $colors-black;
+    border: 1px solid $colors-light-gray;
     border-radius: $border-radius;
     cursor: pointer;
     display: inline-block;
@@ -25,7 +26,7 @@ button,
     }
 
     .icon {
-        color: darken($colors-dark-gray, 30%);
+        color: darken($colors-white, 70%);
         pointer-events: none;
         position: absolute;
         top: 50%;
@@ -39,11 +40,11 @@ button,
     }
 
     &:hover {
-        background-color: darken($colors-light-gray, 10%);
+        background-color: darken($colors-white, 10%);
     }
 
     &:active {
-        background-color: darken($colors-dark-gray, 20%);
+        background-color: darken($colors-white, 20%);
     }
 
     &.button-sm {
@@ -79,6 +80,47 @@ button,
     &.button-block {
         display: block;
         width: 100%;
+    }
+
+    @each $key, $color in $colors {
+        &.button-#{$key} {
+            color: color-contrast($color) !important;
+            background-color: $color !important;
+            border-color: darken($color, 10%);
+
+            &:hover {
+                color: color-contrast(darken($color, 10%)) !important;
+                background-color: darken($color, 10%) !important;
+                border-color: darken($color, 15%) !important;
+            }
+        }
+
+        &.button-ghost-#{$key} {
+            color: $color !important;
+            background-color: transparent !important;
+            border-color: $color !important;
+
+            &:hover {
+                color: darken($color, 10%) !important;
+                border-color: darken($color, 15%) !important;
+            }
+        }
+    }
+}
+
+.button-group {
+    button,
+    .button {
+        border-radius: 0;
+
+        &:first-child:not(:last-child) {
+            border-top-left-radius: $border-radius;
+            border-bottom-left-radius: $border-radius;
+        }
+        &:last-child:not(:first-child) {
+            border-top-right-radius: $border-radius;
+            border-bottom-right-radius: $border-radius;
+        }
     }
 }
 
@@ -146,7 +188,7 @@ button,
                 padding: 0.5em 1em;
 
                 &.active {
-                    background-color: $colors-dark-gray;
+                    background-color: $colors-purple;
                     color: $colors-white;
                 }
             }
