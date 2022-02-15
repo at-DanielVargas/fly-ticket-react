@@ -1,5 +1,5 @@
-import React from 'react'
-import { useState, useRef } from 'react'
+
+import { cloneElement, Children, useState, useRef } from 'react'
 import { PropTypes } from 'prop-types'
 
 import { useClickOutSideDetect } from '@hooks'
@@ -41,8 +41,8 @@ const Dropdown = ( { children, placeholder, color, className = '' } ) => {
       </div>
       <div className='dropdown-menu' ref={menuRef}>
         <div className='dropdown-content'>
-          {React.Children.map( children, ( child, index ) => {
-            return React.cloneElement( child, {
+          {Children.map( children, ( child, index ) => {
+            return cloneElement( child, {
               key: index
             } )
           } )}

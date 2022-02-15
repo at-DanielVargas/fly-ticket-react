@@ -1,4 +1,4 @@
-import React from 'react'
+
 import { Link } from 'react-router-dom'
 import { FaHome, FaCalendarAlt, FaShoppingCart } from 'react-icons/fa'
 export const Sidebar = () => {

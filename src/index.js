@@ -1,5 +1,5 @@
 import './polyfills.js'
-import React from 'react'
+import { StrictMode } from 'react'
 import ReactDOM from 'react-dom'
 import reportWebVitals from './reportWebVitals'
 import { Provider } from 'react-redux'
@@ -9,11 +9,11 @@ import { Routes } from '@core'
 import './styles/flyticket.scss'
 
 ReactDOM.render(
-  <React.StrictMode>
+  <StrictMode>
     <Provider store={store}>
       <Routes />
     </Provider>
-  </React.StrictMode>,
+  </StrictMode>,
   document.getElementById( 'root' )
 )
 

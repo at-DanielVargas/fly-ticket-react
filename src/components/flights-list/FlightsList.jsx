@@ -1,4 +1,4 @@
-import React from 'react'
+
 import { useSelector } from 'react-redux'
 import { FlightsSelectors } from '@store'
 import { FaPlane } from 'react-icons/fa'

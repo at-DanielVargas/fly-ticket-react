@@ -1,4 +1,4 @@
-import React from 'react'
+
 import { useState } from 'react'
 import { Input, Button, Dropdown, DropdownItem, Counter, Autocomplete } from '@ui'
 import { SEARCH_TYPES } from '@constants'

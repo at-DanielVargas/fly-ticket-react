@@ -1,4 +1,4 @@
-import React from 'react'
+
 export const Confirm = () => {
   return (
     <div className='container'>

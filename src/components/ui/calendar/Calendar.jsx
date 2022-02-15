@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, forwardRef } from 'react'
+import  { useState, useEffect, useRef, forwardRef } from 'react'
 import { FaCaretRight, FaCaretLeft } from 'react-icons/fa'
 import { PropTypes } from 'prop-types'
 import { CalendarDay } from './CalendarDay'

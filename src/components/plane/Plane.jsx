@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import  { useEffect } from 'react'
 import { MdEventSeat } from 'react-icons/md'
 import { PropTypes } from 'prop-types'
 

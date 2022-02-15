@@ -1,4 +1,4 @@
-import React from 'react'
+
 import { BrowserRouter, Routes as Collection, Route } from 'react-router-dom'
 import { ProtectedRoute } from '@core'
 import { App, Home, Cart, Reservations, Confirm, Auth, Login, Flights, Passengers, Seats } from '@screens'

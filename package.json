@@ -46,7 +46,8 @@
         "start": "BROWSER=none craco start",
         "build": "craco build",
         "test": "craco test",
-        "backend": "node src/server.js"
+        "backend": "node src/server.js",
+        "lint": "npx eslint ./src --fix"
     },
     "eslintConfig": {
         "extends": [

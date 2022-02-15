@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react'
+import  { forwardRef } from 'react'
 import { PropTypes } from 'prop-types'
 
 const Button = forwardRef( ( { children, onClick, color = 'primary', className = '', type }, ref ) => {
